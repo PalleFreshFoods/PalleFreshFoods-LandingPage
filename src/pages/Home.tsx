@@ -44,14 +44,32 @@ export function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-surface-container-low pt-12 pb-20 md:pt-20 md:pb-32">
-        <div className="container-x">
+        {/* Noise grain overlay — subtle texture, 21st.dev style */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0 opacity-[0.06] mix-blend-multiply"
+          style={{ backgroundImage: "url('/noise.svg')", backgroundSize: '200px 200px' }}
+        />
+        {/* Soft gradient glow blob — adds depth behind content */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-32 top-1/3 z-0 h-[420px] w-[420px] rounded-full bg-primary/20 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-24 bottom-0 z-0 h-[360px] w-[360px] rounded-full bg-tertiary/25 blur-3xl"
+        />
+
+        <div className="container-x relative z-10">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <ScrollReveal>
               <span className="eyebrow">From the village · To your table</span>
               <h1 className="mt-3 font-display text-display-lg text-on-surface">
                 Farm-Fresh Goodness,
                 <br />
-                <span className="text-primary">Delivered to Your Door</span>
+                <span className="bg-gradient-to-r from-primary via-tertiary to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">
+                  Delivered to Your Door
+                </span>
               </h1>
               <p className="mt-6 max-w-lg text-body-lg text-on-surface-variant">
                 Discover the season's best from 150 local farms — hand-picked, packed with care,

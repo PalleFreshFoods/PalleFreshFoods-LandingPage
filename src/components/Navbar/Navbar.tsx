@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { useCart } from '../../context/CartContext';
 import { navLinks } from '../../data/content';
 
 const isActivePath = (href: string, current: string) => {
@@ -11,7 +10,6 @@ const isActivePath = (href: string, current: string) => {
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { itemCount, open } = useCart();
   const location = useLocation();
 
   useEffect(() => {
@@ -74,28 +72,6 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={open}
-              aria-label={`Open cart, ${itemCount} items`}
-              className="relative hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition"
-            >
-              <span className="material-symbols-outlined">shopping_cart</span>
-              {itemCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-tertiary-container px-1 text-[11px] font-bold text-tertiary">
-                  {itemCount}
-                </span>
-              )}
-            </button>
-
-            <button
-              type="button"
-              aria-label="Account"
-              className="hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition"
-            >
-              <span className="material-symbols-outlined">account_circle</span>
-            </button>
-
             <Link
               to="/products"
               className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-label-lg font-semibold text-on-primary transition hover:scale-105 hover:shadow-elevated"

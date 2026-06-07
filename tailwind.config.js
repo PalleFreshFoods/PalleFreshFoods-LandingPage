@@ -104,6 +104,18 @@ export default {
           '0%': { opacity: '0', transform: 'scale(0.95)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
+        shimmer: {
+          '0%, 100%': { 'background-position': '0% center' },
+          '50%': { 'background-position': '200% center' },
+        },
+        'shine-sweep': {
+          '0%': { transform: 'translateX(-120%) skewX(-12deg)' },
+          '100%': { transform: 'translateX(220%) skewX(-12deg)' },
+        },
+        'border-spin': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
       },
       animation: {
         marquee: 'marquee 40s linear infinite',
@@ -113,6 +125,9 @@ export default {
         'pulse-ring': 'pulse-ring 1.6s ease-out infinite',
         flip: 'flip 0.7s ease forwards',
         'scale-in': 'scale-in 0.3s ease-out forwards',
+        shimmer: 'shimmer 4s ease-in-out infinite',
+        'shine-sweep': 'shine-sweep 0.9s ease-out forwards',
+        'border-spin': 'border-spin 6s linear infinite',
       },
       boxShadow: {
         soft: '0 4px 16px rgba(13, 99, 27, 0.08)',

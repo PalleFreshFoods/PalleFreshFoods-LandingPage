@@ -3,7 +3,6 @@ import { CartProvider } from './context/CartContext';
 import { Navbar } from './components/Navbar/Navbar';
 import { Footer } from './components/Footer/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
-import { FloatingCart } from './components/FloatingCart';
 import { SideCart } from './components/SideCart';
 import { ChatWidget } from './components/ChatWidget';
 import { Home } from './pages/Home';
@@ -26,7 +25,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        <FloatingCart />
         <SideCart />
         <ChatWidget />
       </BrowserRouter>

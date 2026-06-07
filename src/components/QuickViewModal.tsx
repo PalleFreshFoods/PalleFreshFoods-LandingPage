@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useCart } from '../context/CartContext';
 import type { Product } from '../types';
 
 type QuickViewProps = {
@@ -8,8 +7,6 @@ type QuickViewProps = {
 };
 
 export function QuickView({ product, onClose }: QuickViewProps) {
-  const { add } = useCart();
-
   useEffect(() => {
     if (!product) return;
     const onKey = (e: KeyboardEvent) => {
@@ -24,11 +21,6 @@ export function QuickView({ product, onClose }: QuickViewProps) {
   }, [product, onClose]);
 
   if (!product) return null;
-
-  const handleAdd = () => {
-    add(product);
-    onClose();
-  };
 
   return (
     <div
@@ -78,31 +70,6 @@ export function QuickView({ product, onClose }: QuickViewProps) {
             <p className="text-body-md text-on-surface-variant leading-relaxed">
               {product.description}
             </p>
-
-            <div className="flex items-baseline gap-2">
-              <span className="font-display text-display-lg text-primary leading-none">
-                ${product.price.toFixed(2)}
-              </span>
-              <span className="text-body-md text-on-surface-variant">/ {product.unit}</span>
-            </div>
-
-            <div className="mt-auto flex flex-col gap-3">
-              <button
-                type="button"
-                onClick={handleAdd}
-                className="btn-primary w-full"
-              >
-                <span className="material-symbols-outlined text-[20px]">add_shopping_cart</span>
-                Add to Cart
-              </button>
-              <button
-                type="button"
-                onClick={onClose}
-                className="text-label-lg text-on-surface-variant hover:text-primary"
-              >
-                Continue browsing
-              </button>
-            </div>
           </div>
         </div>
       </div>
